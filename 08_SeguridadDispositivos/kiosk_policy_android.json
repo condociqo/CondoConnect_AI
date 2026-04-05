@@ -1,0 +1,19 @@
+{
+  "applications": [
+    {
+      "packageName": "com.condoconnectai.app",
+      "installType": "FORCE_INSTALLED",
+      "defaultPermissionPolicy": "GRANT"
+    }
+  ],
+  "persistentPreferredActivities": [
+    {
+      "receiverActivity": "com.condoconnectai.app/.MainActivity",
+      "actions": ["android.intent.action.MAIN"],
+      "categories": ["android.intent.category.HOME", "android.intent.category.DEFAULT"]
+    }
+  ],
+  "statusBarDisabled": true,
+  "safeBootDisabled": true,
+  "factoryResetDisabled": true
+}

@@ -1,0 +1,111 @@
+Listado de rutas de carpetas para el volumen victor
+El número de serie del volumen es C0E8-5D4C
+C:.
+|   Arbol_CondoConnect.txt
+|   
++---01_Documentacion
+|       Arquitectura_AWS_CondoConnect.md
+|       
++---02_Diseno
+|   \---Assets_Avatar
++---03_Frontend
+|   \---src
+|       +---components
+|       |   |   AccesosRestringidosQR.jsx
+|       |   |   AsistenciaBiometricaGPS.jsx
+|       |   |   BotonPanicoSOS.jsx
+|       |   |   CalendarioTurnos.jsx
+|       |   |   ConfiguracionRoles.jsx
+|       |   |   ControlAmenidades.jsx
+|       |   |   ControlRecorridos.jsx
+|       |   |   DeliveryFastTrackCorp.jsx
+|       |   |   EntregaPaqueteria.jsx
+|       |   |   EntregaTurno.jsx
+|       |   |   EstacionamientoInteligente.jsx
+|       |   |   GestionRRHHBienestar.jsx
+|       |   |   MarinaAssistant.jsx
+|       |   |   MonitoreoCCTV.jsx
+|       |   |   NominaGuardia.jsx
+|       |   |   PanelAccesosCorporativo.jsx
+|       |   |   PausasDignas.jsx
+|       |   |   ReconocimientoPlacas.jsx
+|       |   |   RegistroStaffWhatsApp.jsx
+|       |   |   RegistroVisitaID.jsx
+|       |   |   RegistroVisitante.jsx
+|       |   |   ReporteMultasEvidencia.jsx
+|       |   |   ScannerCaseta.jsx
+|       |   |   ScannerMonetizacion.jsx
+|       |   |   
+|       |   +---admin
+|       |   |       AsambleasVotacionLegal.jsx
+|       |   |       BovedaDigitalAdmin.jsx
+|       |   |       CalculadoraServicios.jsx
+|       |   |       ComunicacionOmnicanal.jsx
+|       |   |       ConfiguracionPropiedad.jsx
+|       |   |       ContabilidadPagosAdmin.jsx
+|       |   |       FacturacionSAT.jsx
+|       |   |       GestorAmenidadesCine.jsx
+|       |   |       GestorCredencialesAcceso.jsx
+|       |   |       GestorMultasAdmin.jsx
+|       |   |       PadronBiometricoUniversal.jsx
+|       |   |       
+|       |   +---empresaseguridad
+|       |   |       CapacitacionMarinaAcademy.jsx
+|       |   |       ERPSupervisorGlobal.jsx
+|       |   |       EstudioVulnerabilidadIA.jsx
+|       |   |       HubReclutamiento360.jsx
+|       |   |       LicitacionComercialMarina.jsx
+|       |   |       NominaContratosEmpresa.jsx
+|       |   |       OperacionesEmergenciaSOS.jsx
+|       |   |       ReclutamientoPsicometrico.jsx
+|       |   |       RendimientoSaludGlobal.jsx
+|       |   |       RRHHGuardiasGlobal.jsx
+|       |   |       
+|       |   +---global
+|       |   |       ArchivoLegalUniversal.jsx
+|       |   |       
+|       |   +---gobernanza
+|       |   |       AprobacionFinancieraBiometrica.jsx
+|       |   |       BovedaMonetizacionDirectiva.jsx
+|       |   |       TiendaMejorasInsumos.jsx
+|       |   |       
+|       |   \---superadmin
+|       |           AdminEmpresasCorporativo.jsx
+|       |           ConfiguracionRolesGlobalesApp.jsx
+|       |           FinanzasConsolidadasGlobal.jsx
+|       |           MarketplaceIntegraciones.jsx
+|       |           MigracionHardwareIoT.jsx
+|       |           MotorFinancieroGlobal.jsx
+|       |           ReportesFinancierosERP.jsx
+|       |           
+|       \---screens
+|           |   DashboardAdmin.jsx
+|           |   DashboardEmpresa.jsx
+|           |   DashboardGuardia.jsx
+|           |   KioscoVisitantesAuto.jsx
+|           |   LoginCaseta.jsx
+|           |   MovilidadDigna.jsx
+|           |   
+|           +---empresaseguridad
+|           |       ERPSupervisorCampo.jsx
+|           |       
+|           +---residentes
+|           |       GeneradorQRResidente.jsx
+|           |       
+|           \---superadmin
+|                   DashboardSuperAdminGlobal.jsx
+|                   
++---04_Backend
+|   +---edge_computing
+|   |       Marina_Hardware_Migrator.py
+|   |       
+|   +---iot_devices
+|   |       Controlador_Puertas_IoT.js
+|   |       
+|   \---scripts
+|           MarinaAntiTheft.js
+|           
+\---05_AI_Marina
+    \---knowledge_base
+            ConocimientoTransporte.json
+            

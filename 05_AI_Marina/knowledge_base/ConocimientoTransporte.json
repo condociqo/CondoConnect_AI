@@ -1,0 +1,23 @@
+{
+  "ciudades": {
+    "Queretaro": {
+      "sistema_principal": "QroBus",
+      "tarifa_efectivo": "No disponible (Solo tarjeta)",
+      "tarifa_tarjeta": 11.0,
+      "tarifa_transbordo": 0.0,
+      "puntos_recarga": ["Tiendas de conveniencia", "Cajeros QroBus"],
+      "consejo_marina": "Víctor, recuerda que en Querétaro el camión no acepta monedas. Ten siempre saldo en tu tarjeta para evitar que te dejen parado."
+    },
+    "CDMX": {
+      "metro": {
+        "tarifa": 5.0,
+        "metodo": "Tarjeta Movilidad Integrada"
+      },
+      "metrobus": {
+        "tarifa": 6.0,
+        "metodo": "Tarjeta Movilidad Integrada"
+      },
+      "consejo_marina": "En la Ciudad de México, el transbordo en el metro es gratuito dentro de las estaciones. Úsalo para ahorrar dinero en tus rutas largas."
+    }
+  }
+}

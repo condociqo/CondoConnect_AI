@@ -1,0 +1,58 @@
+{
+  "TableName": "CondoConnect_Personal_Operativo",
+  "KeySchema": [
+    {
+      "AttributeName": "ID_Elemento",
+      "KeyType": "HASH" 
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "ID_Elemento",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "Vector_Biometrico",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "Propiedad_Asignada",
+      "AttributeType": "S"
+    }
+  ],
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "BusquedaPorRostroIndex",
+      "KeySchema": [
+        {
+          "AttributeName": "Vector_Biometrico",
+          "KeyType": "HASH"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 5,
+        "WriteCapacityUnits": 5
+      }
+    },
+    {
+      "IndexName": "BusquedaPorPropiedadIndex",
+      "KeySchema": [
+        {
+          "AttributeName": "Propiedad_Asignada",
+          "KeyType": "HASH"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 5,
+        "WriteCapacityUnits": 5
+      }
+    }
+  ],
+  "BillingMode": "PAY_PER_REQUEST"
+}

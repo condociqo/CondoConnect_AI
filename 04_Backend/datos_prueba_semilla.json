@@ -1,0 +1,99 @@
+{
+  "Propiedades_Sedes": [
+    {
+      "ID_Propiedad": "SEDE-HOTEL-CUN01",
+      "Nombre": "Grand Resort & Spa Cancún",
+      "Vertical_Negocio": "Hotelería",
+      "Suscripcion_SaaS": "Al_Corriente",
+      "Pais": "México",
+      "Config_Caseta": "Marina AI + Lector Pasaportes"
+    },
+    {
+      "ID_Propiedad": "SEDE-PLAZA-MAD01",
+      "Nombre": "Galerías Central Madrid",
+      "Vertical_Negocio": "Plaza Comercial",
+      "Suscripcion_SaaS": "Al_Corriente",
+      "Pais": "España",
+      "Config_Caseta": "Control Bodegas y Proveedores"
+    },
+    {
+      "ID_Propiedad": "SEDE-PARK-SLP01",
+      "Nombre": "Estacionamiento Inteligente Centro",
+      "Vertical_Negocio": "Estacionamiento Público",
+      "Suscripcion_SaaS": "Al_Corriente",
+      "Pais": "México",
+      "Config_Caseta": "100% Autónomo (LPR Placas + Kiosco)"
+    },
+    {
+      "ID_Propiedad": "SEDE-CORP-NY01",
+      "Nombre": "Torre Financiera Global",
+      "Vertical_Negocio": "Corporativo Oficinas",
+      "Suscripcion_SaaS": "Moroso",
+      "Pais": "Estados Unidos",
+      "Config_Caseta": "Torniquetes Biométricos"
+    }
+  ],
+  
+  "Ocupantes_Usuarios": [
+    {
+      "ID_Usuario": "USR-001",
+      "ID_Propiedad": "SEDE-HOTEL-CUN01",
+      "Unidad_Asignada": "Habitación 402",
+      "Nombre": "Familia Smith",
+      "Tipo_Perfil": "Huésped (Temporal)",
+      "Accesos_Activos": ["Alberca", "Gimnasio"]
+    },
+    {
+      "ID_Usuario": "USR-002",
+      "ID_Propiedad": "SEDE-PLAZA-MAD01",
+      "Unidad_Asignada": "Local 15 (Zara)",
+      "Nombre": "Carlos Mendoza (Gerente Tienda)",
+      "Tipo_Perfil": "Locatario",
+      "Accesos_Activos": ["Andén de Carga", "Estacionamiento VIP"]
+    },
+    {
+      "ID_Usuario": "USR-003",
+      "ID_Propiedad": "SEDE-PARK-SLP01",
+      "Unidad_Asignada": "Pensión Mensual",
+      "Nombre": "María Fernández",
+      "Tipo_Perfil": "Suscriptor Estacionamiento",
+      "Accesos_Activos": ["Plumas 1 y 2 (Lectura Placas)"]
+    }
+  ],
+
+  "Personal_Seguridad": [
+    {
+      "ID_Elemento": "G-GLOBAL-101",
+      "ID_Propiedad_Asignada": "SEDE-PLAZA-MAD01",
+      "Nombre_Completo": "Antonio Roblero",
+      "Rol": "Supervisor de Centro Comercial",
+      "Estado_Emocional": "Motivado",
+      "Rendimiento": 98
+    },
+    {
+      "ID_Elemento": "G-GLOBAL-102",
+      "ID_Propiedad_Asignada": "SEDE-HOTEL-CUN01",
+      "Nombre_Completo": "Martín Rivera",
+      "Rol": "Guardia de Accesos (Playa)",
+      "Estado_Emocional": "Estable",
+      "Rendimiento": 95
+    }
+  ],
+
+  "Hardware_IoT_Global": [
+    {
+      "ID_Dispositivo": "HW-PLUMA-01",
+      "ID_Propiedad": "SEDE-PARK-SLP01",
+      "Tipo": "Barrera Vehicular + Cobro Tarjeta",
+      "Ubicacion": "Salida Calle Principal",
+      "Estado_AWS": "Conectado"
+    },
+    {
+      "ID_Dispositivo": "HW-SCAN-02",
+      "ID_Propiedad": "SEDE-HOTEL-CUN01",
+      "Tipo": "Lector QR y Pasaportes",
+      "Ubicacion": "Lobby Recepción",
+      "Estado_AWS": "Conectado"
+    }
+  ]
+}

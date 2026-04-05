@@ -1,0 +1,11 @@
+# Ignorar dependencias pesadas
+node_modules/
+
+# IGNORAR CAJAS FUERTES (Variables de entorno)
+.env
+.env.local
+.env.production
+
+# Ignorar archivos de sistema operativo
+.DS_Store
+Thumbs.db
