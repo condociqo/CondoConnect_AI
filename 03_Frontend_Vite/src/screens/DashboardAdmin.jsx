@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { KantechAPI } from '../drivers/kantech_api';
 
-export default function DashboardAdmin() {
+export default function DashboardAdmin({ onLogout }) {
   const [herramienta, setHerramienta] = useState('kantech_lab');
   const [kantechIP, setKantechIP] = useState('');
   const [kantechStatus, setKantechStatus] = useState('Desconectado');
@@ -93,3 +93,4 @@ export default function DashboardAdmin() {
     </div>
   );
 }
+
