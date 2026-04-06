@@ -24,9 +24,10 @@ export default function DashboardAdmin() {
   };
 
   const enviarApertura = async (idPuerta) => {
-    setLog(Enviando comando de apertura a controlador Kantech (Puerta:  + idPuerta + )...);
+    // SUTURA: Agregadas comillas simples para corregir el error de compilación
+    setLog('Enviando comando de apertura a controlador Kantech (Puerta: ' + idPuerta + ')...');
     const resp = await KantechAPI.abrirPuerta(idPuerta);
-    setLog(Respuesta de Servidor Kantech:  + resp.message);
+    setLog('Respuesta de Servidor Kantech: ' + resp.message);
   };
 
   return (
