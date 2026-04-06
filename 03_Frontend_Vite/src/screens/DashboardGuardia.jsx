@@ -1,32 +1,31 @@
 import React, { useState } from 'react';
 
 export default function DashboardGuardia() {
-  const [herramienta, setHerramienta] = useState('cctv');
+  const [herramienta, setHerramienta] = useState('bitacora');
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#0f172a', color: 'white', fontFamily: 'sans-serif' }}>
-      {/* Menú Lateral */}
-      <div style={{ width: '250px', backgroundColor: '#020617', padding: '20px', borderRight: '1px solid #1e293b' }}>
-        <h3 style={{ color: '#38bdf8', marginBottom: '30px' }}>🛡️ VIGILANCIA CF</h3>
-        <button onClick={() => setHerramienta('cctv')} style={{ width: '100%', padding: '15px', marginBottom: '10px', background: herramienta === 'cctv' ? '#1e40af' : 'transparent', color: 'white', border: 'none', borderRadius: '5px', textAlign: 'left', cursor: 'pointer' }}>📹 Monitor CCTV</button>
-        <button onClick={() => setHerramienta('placas')} style={{ width: '100%', padding: '15px', marginBottom: '10px', background: herramienta === 'placas' ? '#1e40af' : 'transparent', color: 'white', border: 'none', borderRadius: '5px', textAlign: 'left', cursor: 'pointer' }}>🚗 Lector de Placas</button>
-        <button onClick={() => setHerramienta('qr')} style={{ width: '100%', padding: '15px', marginBottom: '10px', background: herramienta === 'qr' ? '#1e40af' : 'transparent', color: 'white', border: 'none', borderRadius: '5px', textAlign: 'left', cursor: 'pointer' }}>📱 Escáner QR</button>
-        <button onClick={() => setHerramienta('rondines')} style={{ width: '100%', padding: '15px', background: herramienta === 'rondines' ? '#1e40af' : 'transparent', color: 'white', border: 'none', borderRadius: '5px', textAlign: 'left', cursor: 'pointer' }}>🔦 Control Rondines</button>
-      </div>
-
-      {/* Área de Trabajo Principal */}
-      <div style={{ flex: 1, padding: '30px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-          <h2>Centro de Operaciones</h2>
-          <span style={{ background: '#22c55e', padding: '5px 10px', borderRadius: '20px', fontSize: '12px' }}>SISTEMA ARMADO</span>
+    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#020408', color: '#cbd5e1', fontFamily: 'sans-serif' }}>
+      <div style={{ width: '260px', backgroundColor: '#0A1628', padding: '20px', borderRight: '1px solid #00E5FF' }}>
+        <h3 style={{ color: '#00E5FF', marginBottom: '20px', fontFamily: 'Orbitron' }}>🛡️ OPERACIÓN CIQO</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <button onClick={() => setHerramienta('cctv')} style={{ background: herramienta==='cctv' ? 'rgba(0,229,255,0.2)' : 'transparent', color: 'white', border: '1px solid #00E5FF', padding: '10px', borderRadius: '5px', textAlign: 'left', cursor: 'pointer' }}>📹 Monitor CCTV Hikvision</button>
+          <button onClick={() => setHerramienta('lpr')} style={{ background: herramienta==='lpr' ? 'rgba(0,229,255,0.2)' : 'transparent', color: 'white', border: '1px solid #00E5FF', padding: '10px', borderRadius: '5px', textAlign: 'left', cursor: 'pointer' }}>🚗 Lector de Placas (LPR)</button>
+          <button onClick={() => setHerramienta('qr')} style={{ background: herramienta==='qr' ? 'rgba(0,229,255,0.2)' : 'transparent', color: 'white', border: '1px solid #00E5FF', padding: '10px', borderRadius: '5px', textAlign: 'left', cursor: 'pointer' }}>📱 Escáner QR / Visitas</button>
+          <button onClick={() => setHerramienta('id')} style={{ background: herramienta==='id' ? 'rgba(0,229,255,0.2)' : 'transparent', color: 'white', border: '1px solid #00E5FF', padding: '10px', borderRadius: '5px', textAlign: 'left', cursor: 'pointer' }}>🪪 Registro ID Oficial</button>
+          <button onClick={() => setHerramienta('paqueteria')} style={{ background: herramienta==='paqueteria' ? 'rgba(0,229,255,0.2)' : 'transparent', color: 'white', border: '1px solid #00E5FF', padding: '10px', borderRadius: '5px', textAlign: 'left', cursor: 'pointer' }}>📦 Delivery Fast Track</button>
+          <button onClick={() => setHerramienta('rondines')} style={{ background: herramienta==='rondines' ? 'rgba(0,229,255,0.2)' : 'transparent', color: 'white', border: '1px solid #00E5FF', padding: '10px', borderRadius: '5px', textAlign: 'left', cursor: 'pointer' }}>📍 Rondines GPS</button>
+          <button onClick={() => setHerramienta('bitacora')} style={{ background: herramienta==='bitacora' ? 'rgba(0,229,255,0.2)' : 'transparent', color: 'white', border: '1px solid #00E5FF', padding: '10px', borderRadius: '5px', textAlign: 'left', cursor: 'pointer' }}>📝 Bitácora de Paz</button>
+          <button onClick={() => setHerramienta('turno')} style={{ background: herramienta==='turno' ? 'rgba(0,229,255,0.2)' : 'transparent', color: 'white', border: '1px solid #00E5FF', padding: '10px', borderRadius: '5px', textAlign: 'left', cursor: 'pointer' }}>🤝 Entrega de Turno</button>
+          <button style={{ background: '#ff4466', color: 'white', border: 'none', padding: '15px 10px', borderRadius: '5px', textAlign: 'center', cursor: 'pointer', fontWeight: 'bold', marginTop: '20px' }}>🚨 BOTÓN S.O.S</button>
         </div>
-        
-        {/* Renderizado Dinámico de la Herramienta */}
-        <div style={{ backgroundColor: '#1e293b', padding: '20px', borderRadius: '10px', minHeight: '400px', border: '1px solid #334155' }}>
-          {herramienta === 'cctv' && <div><h3 style={{color: '#60a5fa'}}>Monitor Hikvision (En Vivo)</h3><div style={{height:'300px', background:'#000', marginTop:'10px', display:'flex', alignItems:'center', justifyContent:'center', color:'#475569'}}>[ SEÑAL DE VIDEO ZTE MULTICANAL ]</div></div>}
-          {herramienta === 'placas' && <div><h3 style={{color: '#60a5fa'}}>Reconocimiento LPR Bosch</h3><p>Esperando vehículo en pluma de acceso...</p></div>}
-          {herramienta === 'qr' && <div><h3 style={{color: '#60a5fa'}}>Validación de Visitas</h3><p>Apunte la cámara del dispositivo al código QR del visitante.</p></div>}
-          {herramienta === 'rondines' && <div><h3 style={{color: '#60a5fa'}}>Bitácora de Recorridos GPS</h3><p>Último punto de control verificado: Muro Norte (Hace 15 min).</p></div>}
+      </div>
+      <div style={{ flex: 1, padding: '30px' }}>
+        <h2 style={{ borderBottom: '1px solid #1A2840', paddingBottom: '10px', color: '#00E5FF' }}>Panel de Control Táctico</h2>
+        <div style={{ marginTop: '20px', background: '#1A2840', padding: '20px', borderRadius: '10px', border: '1px solid rgba(0,229,255,0.1)', minHeight: '500px' }}>
+           {herramienta === 'cctv' && <div><h3>Monitor CCTV</h3><div style={{height: '300px', background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>[ ESPERANDO SEÑAL RTSP ZTE ]</div></div>}
+           {herramienta === 'lpr' && <div><h3>Reconocimiento Analítico de Placas</h3><p>Cámaras en pluma de acceso armadas. Esperando vehículo...</p></div>}
+           {herramienta === 'bitacora' && <div><h3>Bitácora Inmutable</h3><p>07:00 AM - Inicio de turno oficial CIQO. Sistemas nominales.</p></div>}
+           {herramienta !== 'cctv' && herramienta !== 'lpr' && herramienta !== 'bitacora' && <div><h3>Módulo Activo: {herramienta.toUpperCase()}</h3><p>Interfaz conectada. Esperando datos del Backend...</p></div>}
         </div>
       </div>
     </div>
