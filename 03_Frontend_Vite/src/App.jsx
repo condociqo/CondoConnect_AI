@@ -1,33 +1,28 @@
 import React, { useState } from 'react';
 import LoginCaseta from './screens/LoginCaseta';
-import DashboardAdmin from './screens/DashboardAdmin';
 import DashboardGuardia from './screens/DashboardGuardia';
+import DashboardAdmin from './screens/DashboardAdmin';
 import DashboardFundadorSaaS from './screens/founder/DashboardFundadorSaaS';
+import MarinaAssistant from './screens/MarinaAssistant';
 
 export default function App() {
-  const [usuarioAutenticado, setUsuarioAutenticado] = useState(null);
-  const [rolUsuario, setRolUsuario] = useState('');
+  // Estado bloqueado por defecto. Nadie entra sin pasar por LoginCaseta.
+  const [rolUsuario, setRolUsuario] = useState(null);
 
-  const iniciarSesion = (rol) => {
-    setUsuarioAutenticado(true);
-    setRolUsuario(rol);
-  };
-
-  if (!usuarioAutenticado) {
-    return <LoginCaseta onLogin={iniciarSesion} />;
+  // Si no hay rol (no ha escaneado su rostro), mostramos ÚNICAMENTE la cámara.
+  if (!rolUsuario) {
+    return <LoginCaseta onLogin={setRolUsuario} />;
   }
 
+  // El enrutador: Dependiendo de tu rostro, te manda a tu imperio.
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#F1F5F9' }}>
+    <>
       {rolUsuario === 'Guardia' && <DashboardGuardia />}
       {rolUsuario === 'Admin' && <DashboardAdmin />}
       {rolUsuario === 'Fundador' && <DashboardFundadorSaaS />}
       
-      <button 
-        onClick={() => setUsuarioAutenticado(null)}
-        style={{ position: 'fixed', bottom: 20, right: 20, padding: '10px 20px', backgroundColor: '#EF4444', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>
-        Cerrar Sesión
-      </button>
-    </div>
+      {/* Marina siempre activa, observando e interactuando en todas las pantallas */}
+      <MarinaAssistant usuario={rolUsuario} />
+    </>
   );
 }

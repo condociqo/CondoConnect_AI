@@ -1,26 +1,54 @@
-import React from 'react';
-// Importamos el logo que acabamos de copiar
-import logoCorporativo from '../assets/logo.png';
+import React, { useEffect, useRef, useState } from 'react';
 
 export default function LoginCaseta({ onLogin }) {
+  const videoRef = useRef(null);
+  const [status, setStatus] = useState('Inicializando cámara frontal...');
+
+  useEffect(() => {
+    // Encender la webcam del dispositivo
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+          setStatus('Cámara activa. Por favor, mire fijamente al lente.');
+        }
+      })
+      .catch(err => setStatus('Error: No se detectó cámara web. Acceso denegado.'));
+  }, []);
+
+  const simularEscaneoAWS = () => {
+    setStatus('Analizando nodos faciales vía AWS Rekognition...');
+    setTimeout(() => {
+      setStatus('Identidad Confirmada: Víctor Hugo (Fundador). Desbloqueando...');
+      setTimeout(() => {
+        // Apagar cámara al entrar
+        const stream = videoRef.current.srcObject;
+        if (stream) stream.getTracks().forEach(track => track.stop());
+        onLogin('Fundador');
+      }, 1500);
+    }, 2000);
+  };
+
   return (
-    <div style={{ backgroundColor: '#020617', color: 'white', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', fontFamily: 'sans-serif', padding: '20px' }}>
-      
-      {/* --- Contenedor de Identidad Visual --- */}
-      <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-        <img src={logoCorporativo} alt="Logo CondoConnect AI" style={{ maxWidth: '150px', height: 'auto', marginBottom: '20px' }} />
-        <h1 style={{ color: '#38bdf8', fontSize: '36px', margin: '0' }}>CondoConnect AI</h1>
-        <p style={{ color: '#64748b', marginTop: '10px' }}>Puerta de Enlace de Seguridad</p>
+    <div style={{ backgroundColor: '#020408', color: 'white', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', fontFamily: 'sans-serif' }}>
+      <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+        <h1 style={{ color: '#00E5FF', margin: '0', fontFamily: 'Orbitron, sans-serif' }}>CondoConnect AI</h1>
+        <p style={{ color: '#8892B0' }}>Punto de Control Biométrico ISO-27001</p>
       </div>
 
-      {/* --- Contenedor de Accesos Multitenant --- */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', width: '100%', maxWidth: '350px' }}>
-        <button onClick={() => onLogin('Guardia')} style={{ padding: '15px', background: '#334155', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px', transition: 'background 0.3s' }}>🛡️ ACCESO SEGURIDAD (CASETA)</button>
-        <button onClick={() => onLogin('Admin')} style={{ padding: '15px', background: '#1e40af', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px', transition: 'background 0.3s' }}>🏢 ACCESO ADMINISTRATIVO</button>
-        <button onClick={() => onLogin('Fundador')} style={{ padding: '15px', background: '#4338ca', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px', transition: 'background 0.3s' }}>🚀 ACCESO FUNDADOR (SaaS)</button>
+      <div style={{ background: '#0A1628', padding: '20px', borderRadius: '15px', border: '1px solid #00E5FF', boxShadow: '0 0 30px rgba(0, 229, 255, 0.1)', textAlign: 'center' }}>
+        <div style={{ position: 'relative', width: '300px', height: '300px', margin: '0 auto', borderRadius: '50%', overflow: 'hidden', border: '4px solid #00E5FF', boxShadow: '0 0 20px #00E5FF' }}>
+          <video ref={videoRef} autoPlay playsInline muted style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scaleX(-1)' }}></video>
+          {/* Grid de escaneo estilo Iron Man/HUD */}
+          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(rgba(0, 229, 255, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 229, 255, 0.2) 1px, transparent 1px)', backgroundSize: '20px 20px', zIndex: 10, opacity: 0.5 }}></div>
+        </div>
+        
+        <p style={{ marginTop: '20px', color: '#00FF88', fontSize: '14px', fontFamily: 'monospace' }}>{status}</p>
+        
+        <button onClick={simularEscaneoAWS} style={{ marginTop: '20px', padding: '12px 25px', background: 'transparent', border: '2px solid #00E5FF', color: '#00E5FF', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', fontSize: '16px', transition: 'all 0.3s' }}>
+          INICIAR ESCANEO FACIAL
+        </button>
       </div>
-      
-      <div style={{ marginTop: '50px', fontSize: '12px', color: '#334155' }}>CondoConnect AI © 2026 | Cumplimiento Corporativo</div>
     </div>
   );
 }

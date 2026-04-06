@@ -1,52 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-// Este componente representa a Marina en la pantalla del guardia.
-export default function MarinaAssistant({ nombreGuardia }) {
-  const [escuchando, setEscuchando] = useState(false);
-  const [mensajeMarina, setMensajeMarina] = useState(
-    `Hola ${nombreGuardia}, soy Marina. Estoy aquí para apoyarte en tu turno. ¿Cómo te sientes hoy?`
-  );
+export default function MarinaAssistant({ usuario }) {
+  const [mensaje, setMensaje] = useState('Iniciando sistemas cognitivos...');
 
-  // Función que simula encender el micrófono para hablar con Marina
-  const activarMicrofono = () => {
-    setEscuchando(true);
-    setMensajeMarina("Escuchándote... (AWS Transcribe procesando)");
-    
-    // Aquí conectaremos AWS Transcribe y Amazon Lex en el futuro
-    setTimeout(() => {
-      setEscuchando(false);
-      setMensajeMarina("He registrado tu respuesta en la bitácora emocional de forma privada. Recuerda que tu bienestar es primero. ¿En qué más te ayudo?");
-    }, 3000);
-  };
+  useEffect(() => {
+    if (usuario === 'Fundador') {
+      setMensaje('Bienvenido de vuelta, Víctor. Sistemas AWS estables. Bóveda segura.');
+    } else {
+      setMensaje('Hola. Soy Marina AI. Monitoreando la seguridad y bienestar del entorno.');
+    }
+  }, [usuario]);
 
   return (
-    <div style={estilos.contenedorMarina}>
-      <div style={estilos.avatarVisual}>
-        {/* Aquí irá la imagen de Marina que diseñamos */}
-        <img src="/assets/Marina_AI_Guia_Avatar_v1.png" alt="Marina AI" style={estilos.imagen} />
+    <div style={{ position: 'fixed', bottom: '20px', right: '20px', width: '320px', background: 'rgba(10, 22, 40, 0.95)', border: '1px solid #00E5FF', borderRadius: '15px', padding: '15px', boxShadow: '0 10px 30px rgba(0, 229, 255, 0.2)', zIndex: 9999, color: 'white', fontFamily: 'sans-serif' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' }}>
+        <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#00E5FF', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '20px' }}>🧠</div>
+        <div>
+          <h4 style={{ margin: '0', color: '#00E5FF', fontFamily: 'Orbitron, sans-serif' }}>Marina AI</h4>
+          <span style={{ fontSize: '10px', color: '#00FF88' }}>● Conectada a AWS</span>
+        </div>
       </div>
-      
-      <div style={estilos.consolaInteraccion}>
-        <p style={estilos.textoMarina}>{mensajeMarina}</p>
-        
-        <button 
-          onClick={activarMicrofono} 
-          style={escuchando ? estilos.botonEscuchando : estilos.botonHablar}
-        >
-          {escuchando ? '🎙️ Marina te escucha...' : '🎙️ Hablar con Marina'}
-        </button>
-      </div>
+      <p style={{ fontSize: '13px', lineHeight: '1.5', color: '#cbd5e1' }}>"{mensaje}"</p>
     </div>
   );
 }
-
-// Estilos básicos para que se vea profesional desde el primer día
-const estilos = {
-  contenedorMarina: { border: '1px solid #1E3A8A', borderRadius: '10px', padding: '15px', backgroundColor: '#F0F9FF', marginBottom: '20px', textAlign: 'center' },
-  avatarVisual: { width: '100px', height: '100px', borderRadius: '50%', margin: '0 auto', overflow: 'hidden', backgroundColor: '#e2e8f0' },
-  imagen: { width: '100%', height: '100%', objectFit: 'cover' },
-  consolaInteraccion: { marginTop: '15px' },
-  textoMarina: { fontSize: '16px', color: '#1E3A8A', fontStyle: 'italic', marginBottom: '15px' },
-  botonHablar: { backgroundColor: '#2563EB', color: 'white', padding: '12px 24px', border: 'none', borderRadius: '8px', fontSize: '16px', cursor: 'pointer', width: '100%' },
-  botonEscuchando: { backgroundColor: '#EF4444', color: 'white', padding: '12px 24px', border: 'none', borderRadius: '8px', fontSize: '16px', cursor: 'pointer', width: '100%', animation: 'pulse 1.5s infinite' }
-};
