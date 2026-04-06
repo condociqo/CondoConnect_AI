@@ -5,7 +5,6 @@ export default function LoginCaseta({ onLogin }) {
   const [status, setStatus] = useState('Inicializando cámara frontal...');
 
   useEffect(() => {
-    // Encender la webcam del dispositivo
     navigator.mediaDevices.getUserMedia({ video: true })
       .then(stream => {
         if (videoRef.current) {
@@ -19,13 +18,13 @@ export default function LoginCaseta({ onLogin }) {
   const simularEscaneoAWS = () => {
     setStatus('Analizando nodos faciales vía AWS Rekognition...');
     setTimeout(() => {
-      setStatus('Identidad Confirmada: Víctor Hugo (Fundador). Desbloqueando...');
+      // BYPASS DE PRUEBA: Te identificamos y te damos acceso directo como ADMINISTRADOR
+      setStatus('Identidad Confirmada: Víctor Hugo. Asignando credenciales de Administrador Multicondominio...');
       setTimeout(() => {
-        // Apagar cámara al entrar
         const stream = videoRef.current.srcObject;
         if (stream) stream.getTracks().forEach(track => track.stop());
-        onLogin('Fundador');
-      }, 1500);
+        onLogin('Admin');
+      }, 2000);
     }, 2000);
   };
 
@@ -39,12 +38,9 @@ export default function LoginCaseta({ onLogin }) {
       <div style={{ background: '#0A1628', padding: '20px', borderRadius: '15px', border: '1px solid #00E5FF', boxShadow: '0 0 30px rgba(0, 229, 255, 0.1)', textAlign: 'center' }}>
         <div style={{ position: 'relative', width: '300px', height: '300px', margin: '0 auto', borderRadius: '50%', overflow: 'hidden', border: '4px solid #00E5FF', boxShadow: '0 0 20px #00E5FF' }}>
           <video ref={videoRef} autoPlay playsInline muted style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scaleX(-1)' }}></video>
-          {/* Grid de escaneo estilo Iron Man/HUD */}
           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(rgba(0, 229, 255, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 229, 255, 0.2) 1px, transparent 1px)', backgroundSize: '20px 20px', zIndex: 10, opacity: 0.5 }}></div>
         </div>
-        
-        <p style={{ marginTop: '20px', color: '#00FF88', fontSize: '14px', fontFamily: 'monospace' }}>{status}</p>
-        
+        <p style={{ marginTop: '20px', color: '#00FF88', fontSize: '14px', fontFamily: 'monospace', maxWidth: '350px' }}>{status}</p>
         <button onClick={simularEscaneoAWS} style={{ marginTop: '20px', padding: '12px 25px', background: 'transparent', border: '2px solid #00E5FF', color: '#00E5FF', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', fontSize: '16px', transition: 'all 0.3s' }}>
           INICIAR ESCANEO FACIAL
         </button>
