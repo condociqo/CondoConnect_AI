@@ -2,19 +2,15 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from '../views/LandingPage/LandingPage';
 import Dashboard from '../views/Dashboard/Dashboard';
+import Login from '../views/Login/Login';
 
 const AppRouter = () => {
   return (
     <Router>
       <Routes>
-        {/* Ruta de la Landing Page Principal */}
         <Route path="/" element={<LandingPage />} />
-        
-        {/* Ruta del Software (Lo que hoy se ve negro) */}
         <Route path="/portal" element={<Dashboard />} />
-        
-        {/* Ruta de Seguridad (Login) */}
-        <Route path="/login" element={<div>Pantalla de Login</div>} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );
